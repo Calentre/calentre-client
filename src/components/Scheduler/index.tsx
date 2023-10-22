@@ -8,7 +8,7 @@ export const Scheduler = (props: Props) => {
     <Card>
       <div>
         <p>hello 2</p>
-        <Button>Process to Payment</Button>
+        <Button onClick={() => {}}>Process to Payment</Button>
       </div>
     </Card>
   );
