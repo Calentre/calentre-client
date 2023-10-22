@@ -1,11 +1,12 @@
 'use client';
-type Props = {
-  children: React.ReactNode;
-};
 
-export const Button = ({ children }: Props) => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event);
-  };
-  return <button onClick={handleClick}>{children}</button>;
+import { MouseEventHandler } from 'react';
+
+interface Props {
+  children: React.ReactNode;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+export const Button = ({ children, onClick }: Props) => {
+  return <button onClick={onClick}>{children}</button>;
 };
