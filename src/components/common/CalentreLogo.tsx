@@ -1,3 +1,4 @@
+'use client';
 import { Inter } from 'next/font/google';
 
 type Props = {
@@ -55,7 +56,7 @@ export const CalentreLogo = ({ size = 34, withText }: Props) => {
         </svg>
         {withText && (
           <p
-            className={`text-ligh-gray text-base font-bold leading-normal tracking-[8.88px] ${inter.className}`}
+            className={`text-base font-bold leading-normal tracking-[8.88px] text-ligh-gray ${inter.className}`}
           >
             CALENTRE
           </p>
@@ -63,7 +64,7 @@ export const CalentreLogo = ({ size = 34, withText }: Props) => {
       </div>
       {withText && (
         <p
-          className={`text-ligh-gray text-xs font-normal leading-[normal] ${inter.className}`}
+          className={`text-xs font-normal leading-[normal] text-ligh-gray ${inter.className}`}
         >
           Powered by
         </p>
