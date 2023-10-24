@@ -4,9 +4,7 @@ import { Button } from '../common/Button';
 import { Card } from '../common/Card';
 import { Divider } from '../common/Divider';
 
-type Props = {};
-
-export const Scheduler = (props: Props) => {
+export const Scheduler = () => {
   return (
     <Card>
       <div className='flex flex-col'>
