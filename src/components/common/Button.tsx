@@ -19,9 +19,9 @@ export const Button = ({
     if (disabled) return '';
     switch (theme) {
       case 'aurora':
-        return 'border-ligh-gray text-white bg-gradient-to-r from-sky-500 to-fuchsia-500';
+        return 'border-light-gray text-white bg-gradient-to-r from-sky-500 to-fuchsia-500';
       default:
-        return 'bg-carbon-gray border-ligh-gray text-white';
+        return 'bg-carbon-gray border-light-gray text-white';
     }
   };
 
@@ -30,7 +30,7 @@ export const Button = ({
       className={classNames(
         `rounded-3xl border border-solid px-16 py-2 text-sm font-normal ${getTheme()}`,
         {
-          'bg-off-gray border-off-gray text-ligh-gray': disabled,
+          'text-light-gray border-off-gray bg-off-gray': disabled,
         }
       )}
       disabled={disabled}

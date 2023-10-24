@@ -19,7 +19,7 @@ describe('Button.tsx', () => {
       );
 
       expect(screen.getByRole('button')).toHaveClass(
-        'border-ligh-gray text-white bg-gradient-to-r from-sky-500 to-fuchsia-500'
+        'border-light-gray text-white bg-gradient-to-r from-sky-500 to-fuchsia-500'
       );
     });
   });
@@ -29,7 +29,7 @@ describe('Button.tsx', () => {
       render(<Button onClick={jest.fn()}>hello button</Button>);
 
       expect(screen.getByRole('button')).toHaveClass(
-        'bg-carbon-gray border-ligh-gray text-white'
+        'bg-carbon-gray border-light-gray text-white'
       );
     });
   });
@@ -53,7 +53,7 @@ describe('Button.tsx', () => {
       );
 
       expect(screen.getByRole('button')).toHaveClass(
-        'bg-off-gray border-off-gray text-ligh-gray'
+        'bg-off-gray border-off-gray text-light-gray'
       );
     });
   });
