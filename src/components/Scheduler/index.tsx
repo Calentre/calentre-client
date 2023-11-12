@@ -1,19 +1,17 @@
 'use client';
-import { EventOwnerDetails } from '../EventOwnerDetails';
-import { Button } from '../common/Button';
-import { Card } from '../common/Card';
-import { Divider } from '../common/Divider';
+import { useSchedulerContext } from '@/hooks/useSchedulerContext';
+import { DateSelector } from '../DateSelector';
 
-export const Scheduler = () => {
+type Props = {};
+
+export const Scheduler = (props: Props) => {
+  const { selectedMeeting } = useSchedulerContext();
+  if (!selectedMeeting) {
+    return null;
+  }
   return (
-    <Card>
-      <div className='flex flex-col'>
-        <div>
-          <EventOwnerDetails />
-        </div>
-        <Divider horizontal />
-        <Button onClick={() => {}}>Process to Payment</Button>
-      </div>
-    </Card>
+    <div>
+      <DateSelector />
+    </div>
   );
 };

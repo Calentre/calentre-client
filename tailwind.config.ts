@@ -18,6 +18,8 @@ const config: Config = {
         'light-gray': '#808080',
         'carbon-gray': '#262626',
         'off-gray': '#B3B3B3',
+        'mutted-gray': '#7676801f',
+        'carbon-black': '#0D0D0D',
       },
     },
   },

@@ -1,11 +1,25 @@
 'use client';
+
+import classNames from 'classnames';
+
 type Props = {
   children: React.ReactNode;
+  withoutBorder?: boolean;
+  withPadding?: boolean;
 };
 
-export const Card = ({ children }: Props) => {
+export const Card = ({
+  children,
+  withoutBorder,
+  withPadding = true,
+}: Props) => {
   return (
-    <div className='rounded-lg border border-solid border-gray bg-white px-9 py-7'>
+    <div
+      className={classNames('rounded-lg bg-white', {
+        'border border-solid border-gray': !withoutBorder,
+        'px-9 py-7': withPadding,
+      })}
+    >
       {children}
     </div>
   );

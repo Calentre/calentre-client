@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const CalentreLogo = ({ size = 34, withText }: Props) => {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='bottom-0 flex flex-col items-center'>
       <div className='flex items-center gap-3'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -56,7 +56,7 @@ export const CalentreLogo = ({ size = 34, withText }: Props) => {
         </svg>
         {withText && (
           <p
-            className={`text-light-gray text-base font-bold leading-normal tracking-[8.88px] ${inter.className}`}
+            className={`text-base font-bold leading-normal tracking-[8.88px] text-light-gray ${inter.className}`}
           >
             CALENTRE
           </p>
@@ -64,7 +64,7 @@ export const CalentreLogo = ({ size = 34, withText }: Props) => {
       </div>
       {withText && (
         <p
-          className={`text-light-gray text-xs font-normal leading-[normal] ${inter.className}`}
+          className={`text-xs font-normal leading-[normal] text-light-gray ${inter.className}`}
         >
           Powered by
         </p>
