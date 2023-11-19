@@ -1,5 +1,5 @@
 import { useSchedulerContext } from '@/hooks/useSchedulerContext';
-import { Avatar } from './common/Avatar';
+import { Avatar } from '../common/Avatar';
 
 export const EventOwnerDetails = () => {
   const { eventsOwner } = useSchedulerContext();

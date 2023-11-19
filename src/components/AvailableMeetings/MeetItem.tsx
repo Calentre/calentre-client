@@ -1,16 +1,22 @@
-import { useSchedulerContext } from '@/hooks/useSchedulerContext';
+import { EventsOwner } from '@/types/eventsOwner';
 import { MeetingItem } from '@/types/meetings';
+import { useRouter } from 'next/navigation';
 import { ArrowRight } from '../Icons/ArrowRight';
 import { Clock } from '../Icons/Clock';
 import { Tag } from '../Icons/Tag';
 import { Divider } from '../common/Divider';
 
-export const MeetItem = (meeting: MeetingItem) => {
+interface Props {
+  meeting: MeetingItem;
+  eventOwner: EventsOwner;
+}
+
+export const MeetItem = ({ meeting, eventOwner }: Props) => {
   const { duration, name, fee } = meeting;
-  const { setSelectedMeeting } = useSchedulerContext();
+  const { push } = useRouter();
 
   const onClickHandler = () => {
-    setSelectedMeeting(meeting);
+    push(`/${eventOwner.userName}/${meeting.appendedUrlName}`);
   };
 
   return (
@@ -20,10 +26,10 @@ export const MeetItem = (meeting: MeetingItem) => {
         onClick={onClickHandler}
       >
         <div className='flex flex-col gap-2'>
-          <p className='text-carbon-black text-lg font-semibold leading-normal'>
+          <p className='text-lg font-semibold leading-normal text-carbon-black'>
             {name}
           </p>
-          <div className='text-carbon-black flex gap-5 text-sm font-normal leading-normal'>
+          <div className='flex gap-5 text-sm font-normal leading-normal text-carbon-black'>
             <div className='flex flex-row gap-0'>
               <Clock />
               <span>{duration}</span>
