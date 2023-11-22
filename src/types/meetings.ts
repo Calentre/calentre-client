@@ -3,6 +3,7 @@ export interface MeetingItem {
   duration: string;
   fee: string;
   id: number;
+  appendedUrlName: string;
 }
 
 export interface AvailableHours {

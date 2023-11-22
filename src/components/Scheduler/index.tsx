@@ -1,17 +1,32 @@
 'use client';
 import { useSchedulerContext } from '@/hooks/useSchedulerContext';
-import { DateSelector } from '../DateSelector';
+import { useTypedParams } from '@/hooks/useTypedParams';
+import { Four04 } from '../common/404';
+import { Card } from '../common/Card';
+import { DateDetails } from './DateDetails';
+import { EventDetails } from './EventDetails';
 
 type Props = {};
 
 export const Scheduler = (props: Props) => {
-  const { selectedMeeting } = useSchedulerContext();
-  if (!selectedMeeting) {
-    return null;
+  const { availableMeetings } = useSchedulerContext();
+  const params = useTypedParams();
+
+  const selectedEvent = availableMeetings.find(
+    (meet) => meet.appendedUrlName === params['event-name']
+  );
+
+  if (!selectedEvent) {
+    return <Four04 />;
   }
   return (
     <div>
-      <DateSelector />
+      <Card withPadding={false}>
+        <div className='flex flex-row'>
+          <EventDetails event={selectedEvent} />
+          <DateDetails />
+        </div>
+      </Card>
     </div>
   );
 };
