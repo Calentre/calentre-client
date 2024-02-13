@@ -83,7 +83,7 @@ export const Calendar = ({
       days.push(
         <li
           key={i}
-          className={'flex h-full w-full items-center justify-center pb-4'}
+          className={'flex h-full w-full items-center justify-center px-2 pb-4'}
         >
           <div className={'w-full rounded-none bg-white bg-opacity-20'}>
             <div
