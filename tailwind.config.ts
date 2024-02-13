@@ -20,6 +20,8 @@ const config: Config = {
         'off-gray': '#B3B3B3',
         'mutted-gray': '#7676801f',
         'carbon-black': '#0D0D0D',
+        purple: '#8D3FF2',
+        'hover-purple': '#E9D9FF',
       },
     },
   },

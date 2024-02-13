@@ -56,16 +56,14 @@ export const CalentreLogo = ({ size = 34, withText }: Props) => {
         </svg>
         {withText && (
           <p
-            className={`text-base font-bold leading-normal tracking-[8.88px] text-light-gray ${inter.className}`}
+            className={`text-base font-bold leading-normal tracking-[8.88px] text-light-gray`}
           >
             CALENTRE
           </p>
         )}
       </div>
       {withText && (
-        <p
-          className={`text-xs font-normal leading-[normal] text-light-gray ${inter.className}`}
-        >
+        <p className={`text-xs font-normal leading-[normal] text-light-gray`}>
           Powered by
         </p>
       )}

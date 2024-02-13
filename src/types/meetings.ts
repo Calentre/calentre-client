@@ -1,9 +1,15 @@
+export interface MeetingSchedule {
+  day: Date;
+  hours: Date[];
+}
+
 export interface MeetingItem {
   name: string;
   duration: string;
   fee: string;
   id: number;
   appendedUrlName: string;
+  schedules: MeetingSchedule[];
 }
 
 export interface AvailableHours {

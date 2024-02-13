@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 type Props = {
   options: string[];
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
   value?: string;
 };
 
@@ -10,12 +10,12 @@ export const Toggler = ({ options, onChange, value }: Props) => {
   const isActive = value ?? options[0];
 
   return (
-    <div className='bg-mutted-gray flex h-fit w-fit shrink-0 items-center justify-center rounded-[5px] p-[2px]'>
+    <div className='flex h-fit w-fit shrink-0 select-none items-center justify-center rounded-[5px] bg-mutted-gray p-[2px]'>
       {options.map((option, index) => (
         <p
           key={`toggle-option-${index}`}
           className={classNames(
-            'text-carbon-black cursor-pointer rounded-[3px] px-[20px] py-[10px] text-xs font-medium leading-4',
+            'cursor-pointer rounded-[3px] px-[20px] py-[10px] text-xs font-medium leading-4 text-carbon-black transition-all',
             {
               'bg-white shadow-md': isActive === option,
             }
