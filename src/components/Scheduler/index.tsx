@@ -24,7 +24,7 @@ export const Scheduler = (props: Props) => {
       <Card withPadding={false}>
         <div className='flex flex-row'>
           <EventDetails event={selectedEvent} />
-          <DateDetails />
+          <DateDetails event={selectedEvent} />
         </div>
       </Card>
     </div>

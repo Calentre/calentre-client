@@ -1,3 +1,4 @@
+import { translate } from '@/helpers/translate';
 import { useSchedulerContext } from '@/hooks/useSchedulerContext';
 import { MeetingItem } from '@/types/meetings';
 import { useRouter } from 'next/navigation';
@@ -58,7 +59,9 @@ export const EventDetails = ({ event }: Props) => {
         </div>
         <div className='flex flex-col gap-2 pt-4'>
           {/* description */}
-          <p className='text-sm font-medium text-carbon-black'>Description</p>
+          <p className='text-sm font-medium text-carbon-black'>
+            {translate('Description')}
+          </p>
           <small className='max-w-[203px] text-xs font-normal leading-5 text-gray'>
             {DEMO_EVENT_DESCRIPTION}
           </small>

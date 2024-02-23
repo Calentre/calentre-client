@@ -13,10 +13,15 @@ export const useSchedulerContext = () => {
     dispatch({ type: 'CLEAR_SELECTED_MEETING' });
   };
 
+  const setSelectedHour = (hour: Date | undefined) => {
+    dispatch({ type: 'SET_SELECTED_TIME', hour });
+  };
+
   return {
     ...schedulerState,
     dispatch,
     setSelectedMeeting,
     clearSelectedMeeting,
+    setSelectedHour,
   };
 };

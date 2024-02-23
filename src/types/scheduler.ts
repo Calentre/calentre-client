@@ -9,5 +9,6 @@ export type SchedulerProviderAction =
       type: 'CLEAR_SELECTED_MEETING';
     }
   | {
-      type: 'WHATEVER_ACTION_3';
+      type: 'SET_SELECTED_TIME';
+      hour: Date | undefined;
     };

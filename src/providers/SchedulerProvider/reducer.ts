@@ -6,10 +6,7 @@ export type SchedulerReducer = (
   action: SchedulerProviderAction
 ) => SchedulerState;
 
-export const schedulerReducer = (
-  state: SchedulerState,
-  action: SchedulerProviderAction
-) => {
+export const schedulerReducer: SchedulerReducer = (state, action) => {
   switch (action.type) {
     case 'SET_SELECTED_MEETING': {
       return {
@@ -23,8 +20,11 @@ export const schedulerReducer = (
         selectedMeeting: undefined,
       };
     }
-    case 'WHATEVER_ACTION_3': {
-      return state;
+    case 'SET_SELECTED_TIME': {
+      return {
+        ...state,
+        selectedHour: action.hour,
+      };
     }
     default: {
       return state;
