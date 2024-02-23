@@ -1,6 +1,5 @@
-import { NextApiRequest } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextApiRequest) {
+export function GET(request: Request | NextRequest) {
   return NextResponse.json({ message: 'Hello World' }, { status: 200 });
 }
