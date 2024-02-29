@@ -1,4 +1,6 @@
+'use client';
 import { translate } from '@/helpers/translate';
+import useIsMobile from '@/hooks/useIsMobile';
 import { MeetingItem, MeetingSchedule } from '@/types/meetings';
 import { useState } from 'react';
 import { Calendar } from '../Calendar';
@@ -16,12 +18,13 @@ interface Props {
 type ToggleValues = '12h' | '24h';
 
 export const DateDetails = ({ event }: Props) => {
+  const isMobile = useIsMobile();
   const [togglerValue, setTogglerValue] = useState<ToggleValues>('12h');
   const [selectedDay, setSelectedDay] = useState<MeetingSchedule | null>(null);
 
   return (
-    <div className='border-l border-off-gray pl-7'>
-      <div className='flex flex-col gap-6 py-10 pr-10'>
+    <div className='tablet:border-l-0 tablet:border-t tablet:pl-0 border-l border-off-gray pl-7'>
+      <div className='tablet:pr-0 flex flex-col gap-6 py-10 pr-10'>
         <div className='flex items-start'>
           <p className='text-[22px] font-semibold leading-none tracking-[0.15px] text-gray'>
             {translate('Select date and time')}
@@ -29,7 +32,7 @@ export const DateDetails = ({ event }: Props) => {
         </div>
         <div className='flex flex-row gap-6'>
           <div className='flex flex-col gap-7'>
-            <div className='flex justify-between gap-6'>
+            <div className='tablet:flex-col tablet:gap-4 flex justify-between gap-6'>
               {/* calendar */}
               <div className='flex flex-col gap-7'>
                 <Calendar
@@ -62,8 +65,11 @@ export const DateDetails = ({ event }: Props) => {
               )}
             </div>
 
-            <div className='flex justify-end'>
-              <Button className='flex items-center gap-[12px]'>
+            <div className='tablet:w-full flex justify-end'>
+              <Button
+                className='items-cente flex justify-center gap-[12px]'
+                block={isMobile}
+              >
                 <Strike size={24} /> {translate('Next')}
               </Button>
             </div>

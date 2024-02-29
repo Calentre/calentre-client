@@ -24,6 +24,12 @@ const config: Config = {
         'hover-purple': '#E9D9FF',
       },
     },
+    screens: {
+      tablet: { max: '640px' },
+      midDevice: { min: '641px', max: '1023px' },
+      laptop: { min: '1024px', max: '1279px' },
+      desktop: { min: '1280px' },
+    },
   },
   plugins: [],
 };
