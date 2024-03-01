@@ -7,14 +7,14 @@ interface Props {
 
 const PrimaryLayout = ({ children }: Props) => {
   return (
-    <>
-      <main className='flex min-h-screen items-center justify-center'>
+    <div className='flex justify-center'>
+      <main className='tablet:min-h-full tablet:p-4 mb-20 flex min-h-screen flex-grow items-center justify-center'>
         {children}
       </main>
-      <div className='bg-gray-500 fixed bottom-6 left-1/2 -translate-x-1/2 transform p-4'>
+      <div className='bg-gray-500 tablet:p-3 fixed bottom-0 w-full bg-white p-4'>
         <CalentreLogo withText />
       </div>
-    </>
+    </div>
   );
 };
 
