@@ -1,5 +1,4 @@
 'use client';
-import useIsMobile from '@/hooks/useIsMobile';
 import { useSchedulerContext } from '@/hooks/useSchedulerContext';
 import { useTypedParams } from '@/hooks/useTypedParams';
 import { Four04 } from '../common/404';
@@ -12,7 +11,6 @@ type Props = {};
 export const Scheduler = (props: Props) => {
   const { availableMeetings } = useSchedulerContext();
   const params = useTypedParams();
-  const isMobile = useIsMobile();
 
   const selectedEvent = availableMeetings.find(
     (meet) => meet.appendedUrlName === params['event-name']
@@ -23,8 +21,8 @@ export const Scheduler = (props: Props) => {
   }
   return (
     <div>
-      <Card withPadding={false} withoutBorder={isMobile}>
-        <div className='tablet:flex-col tablet:gap-4 flex flex-row'>
+      <Card withPadding={false} className='tablet:border-none'>
+        <div className='flex flex-row tablet:flex-col tablet:gap-4'>
           <EventDetails event={selectedEvent} />
           <DateDetails event={selectedEvent} />
         </div>

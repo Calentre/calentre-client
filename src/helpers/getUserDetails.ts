@@ -1,6 +1,5 @@
-import { Prisma, PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { Prisma } from '@prisma/client';
+import prisma from './prisma';
 
 export const getUserDetails = async (userIdOrUserName?: string) => {
   try {
@@ -30,7 +29,8 @@ export const getUserDetails = async (userIdOrUserName?: string) => {
         user: null,
       };
     } else {
-      return { error, ok: false, user: null };
+      console.error('UserDetails :: error :: ', error);
+      return { error: 'Unexpected error', ok: false, user: null };
     }
   }
 };

@@ -7,7 +7,8 @@ import { SchedulerReducer, schedulerReducer } from './reducer';
 
 interface Props {
   children: React.ReactNode;
-  data: {
+  // nullable for now
+  data?: {
     user: any;
     ok: boolean;
   };
