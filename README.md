@@ -27,10 +27,10 @@ Calentre is your go-to scheduling solution, offering a delightful way to book me
 
 ## Features ✨
 
-- **Scheduling:** Easy appointment booking functionality.
-- **Payment:** Accept payments directly for your time.
-- **Notifications:** Automated reminders keep you and your clients on track.
-- **User-Friendly Interface:** Easy to use for everyone, no tech hassles.
+- **Effortless Appointment Booking:** Schedule appointments with ease directly through the platform. No need for back-and-forth emails or phone calls.
+- **Seamless Payments (if applicable):** Make payment directly for your appointment.
+- **Never Miss an Appointment:** Automated reminders keep you on track, ensuring you stay informed.
+- **Simple and Intuitive Interface:** Easy to use for everyone, no tech hassles.
 
 <img src = "https://github.com/fiizzy/calentre/blob/main/doc/images/create_event.png?raw=true" >
 
