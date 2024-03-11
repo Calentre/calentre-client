@@ -7,12 +7,12 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  children,
-} // params,
-: {
+  children, // params,
+}: {
   children: React.ReactNode;
   params: { 'user-name'?: string };
 }) {
+  // TODO: add after backend were ready
   // const userId = params?.['user-name'];
   // const user = await getUserDetails(userId);
 
