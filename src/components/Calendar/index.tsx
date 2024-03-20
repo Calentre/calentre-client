@@ -1,5 +1,6 @@
+import { stringToDate } from '@/helpers/date';
 import { translate } from '@/helpers/translate';
-import { MeetingSchedule } from '@/types/meetings';
+import { MappedScheduleItem } from '@/types/meetings';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -12,17 +13,18 @@ config.autoAddCss = false;
 
 interface Props {
   currentDate?: Date;
-  onSelectDate: (schedule: MeetingSchedule | null) => void;
-  meetingSchedules: MeetingSchedule[];
-  selectedDate?: Date;
+  onSelectDate: (schedule: MappedScheduleItem | null) => void;
+  eventsSchedules: MappedScheduleItem[];
+  selectedDate: MappedScheduleItem | null;
 }
 export const Calendar = ({
   onSelectDate,
-  meetingSchedules,
+  eventsSchedules,
   selectedDate,
 }: Props) => {
   const now = new Date();
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
+
   const selectedMonth = selectedDateTime.getMonth();
   const selectedYear = selectedDateTime.getFullYear();
 
@@ -37,7 +39,7 @@ export const Calendar = ({
     );
   };
 
-  const onDayClick = (schedule: MeetingSchedule) => {
+  const onDayClick = (schedule: MappedScheduleItem) => {
     onSelectDate(schedule);
   };
 
@@ -69,14 +71,21 @@ export const Calendar = ({
 
       const currentDay = format(date, 'dd');
       const formattedSelectedDateDay =
-        selectedDate && format(selectedDate, 'dd');
+        selectedDate && format(selectedDate.day, 'dd');
       const isSelected = formattedSelectedDateDay === currentDay;
 
-      const hasSchedule = meetingSchedules.find((schedule) => {
+      const hasSchedule = eventsSchedules.find((schedule) => {
         return (
-          format(schedule.day, 'dd') === format(date, 'dd') &&
-          date.getMonth() === schedule.day.getMonth() &&
-          date.getFullYear() === schedule.day.getFullYear()
+          format(new Date(schedule.day).toLocaleString(), 'dd') ===
+            format(date, 'dd') &&
+          date.getMonth() ===
+            stringToDate(
+              new Date(schedule.day).toLocaleString().toLocaleString()
+            ).getMonth() &&
+          date.getFullYear() ===
+            stringToDate(
+              new Date(schedule.day).toLocaleString().toLocaleString()
+            ).getFullYear()
         );
       });
 

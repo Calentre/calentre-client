@@ -5,3 +5,10 @@ interface PageProps {
   };
   searchParams?: any;
 }
+
+declare namespace NodeJS {
+  interface ProcessEnv {
+    baseUrl: string;
+    databaseUrl: string;
+  }
+}

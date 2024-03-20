@@ -8,22 +8,46 @@ export type SchedulerReducer = (
 
 export const schedulerReducer: SchedulerReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_SELECTED_MEETING': {
+    case 'SET_SELECTED_EVENT': {
       return {
         ...state,
-        selectedMeeting: action.meeting,
+        selectedEvent: action.event,
       };
     }
-    case 'CLEAR_SELECTED_MEETING': {
+    case 'CLEAR_SELECTED_EVENT': {
       return {
         ...state,
-        selectedMeeting: undefined,
+        selectedEvent: undefined,
       };
     }
-    case 'SET_SELECTED_TIME': {
+    case 'SET_SELECTED_SCHEDULE': {
       return {
         ...state,
-        selectedHour: action.hour,
+        selectedSchedule: action.schedule,
+      };
+    }
+    case 'SET_TIME_FORMAT': {
+      return {
+        ...state,
+        timeFormat: action.format,
+      };
+    }
+    case 'SET_AVAILABLE_EVENTS': {
+      return {
+        ...state,
+        availableEvents: action.events,
+      };
+    }
+    case 'SET_LOADING': {
+      return {
+        ...state,
+        loading: action.value,
+      };
+    }
+    case 'SET_AVAILABLE_SCHEDULES': {
+      return {
+        ...state,
+        availableSchedules: action.schedules,
       };
     }
     default: {

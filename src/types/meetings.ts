@@ -1,43 +1,28 @@
-export interface MeetingSchedule {
-  day: Date;
-  hours: Date[];
+export type AvailablePlatforms = 'google-meet' | 'teams'; // revisit this
+
+export interface ScheduleItem {
+  id: number;
+  eventId: number;
+  date: string;
+  isExpired?: boolean;
+  isActive: boolean;
 }
 
-export interface MeetingItem {
-  name: string;
+export interface MappedScheduleItem {
+  day: string;
+  eventId: number;
+  schedules: ScheduleItem[];
+}
+
+export interface EventItem {
+  title: string;
   duration: string;
-  fee: string;
+  price: string;
   id: number;
   appendedUrlName: string;
-  schedules: MeetingSchedule[];
-}
-
-export interface AvailableHours {
-  // will revisit this interface
-  hour: Date;
-}
-
-export interface Timezone {
-  // will revisit this interface
-  name: string;
-}
-
-export interface AvailableDates {
-  // will revisit this interface
-  date: Date;
-  day: string;
-  hours: AvailableHours[];
-}
-
-export interface Platform {
-  // will revisit this interface
-  icon: string;
-  name: string;
-}
-
-export interface Meeting extends MeetingItem {
-  availableDates: AvailableDates[];
-  timezones: Timezone[];
   description: string;
-  platform: Platform;
+  timezone: string;
+  isPaidEvent: boolean;
+  status: string;
+  platform: AvailablePlatforms;
 }

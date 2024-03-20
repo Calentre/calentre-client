@@ -1,27 +1,51 @@
-import { SchedulerContext } from '@/providers/SchedulerProvider';
-import { MeetingItem } from '@/types/meetings';
-import { useContext } from 'react';
+import {
+  SchedulerContext,
+  TimeFormatType,
+} from '@/providers/SchedulerProvider';
+import { EventItem, MappedScheduleItem, ScheduleItem } from '@/types/meetings';
+import { useCallback, useContext } from 'react';
 
 export const useSchedulerContext = () => {
   const { schedulerState, dispatch } = useContext(SchedulerContext);
 
-  const setSelectedMeeting = (meeting: MeetingItem) => {
-    dispatch({ type: 'SET_SELECTED_MEETING', meeting });
+  const setSelectedEvent = useCallback(
+    (event: EventItem) => {
+      dispatch({ type: 'SET_SELECTED_EVENT', event });
+    },
+    [dispatch]
+  );
+
+  const clearselectedEvent = () => {
+    dispatch({ type: 'CLEAR_SELECTED_EVENT' });
   };
 
-  const clearSelectedMeeting = () => {
-    dispatch({ type: 'CLEAR_SELECTED_MEETING' });
+  const setSelectedSchedule = (schedule: ScheduleItem | undefined) => {
+    dispatch({ type: 'SET_SELECTED_SCHEDULE', schedule });
   };
 
-  const setSelectedHour = (hour: Date | undefined) => {
-    dispatch({ type: 'SET_SELECTED_TIME', hour });
+  const setTimeFormat = (format: TimeFormatType) => {
+    dispatch({ type: 'SET_TIME_FORMAT', format });
+  };
+
+  const setAvailableSchedules = useCallback(
+    (schedules: MappedScheduleItem[]) => {
+      dispatch({ type: 'SET_AVAILABLE_SCHEDULES', schedules });
+    },
+    [dispatch]
+  );
+
+  const setLoading = (value: boolean) => {
+    dispatch({ type: 'SET_LOADING', value });
   };
 
   return {
     ...schedulerState,
     dispatch,
-    setSelectedMeeting,
-    clearSelectedMeeting,
-    setSelectedHour,
+    setSelectedEvent,
+    clearselectedEvent,
+    setSelectedSchedule,
+    setTimeFormat,
+    setAvailableSchedules,
+    setLoading,
   };
 };
