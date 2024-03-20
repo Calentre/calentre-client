@@ -2,7 +2,7 @@
 import { EventsOwner } from '@/types/eventsOwner';
 import { EventItem, MappedScheduleItem, ScheduleItem } from '@/types/meetings';
 import { SchedulerProviderAction } from '@/types/scheduler';
-import { Dispatch, createContext, useEffect, useReducer } from 'react';
+import { Dispatch, createContext, useReducer } from 'react';
 import { SchedulerReducer, schedulerReducer } from './reducer';
 
 export type TimeFormatType = '12h' | '24h';
@@ -42,15 +42,11 @@ export const SchedulerProvider = ({ children, events, eventsOwner }: Props) => {
       eventsOwner,
       availableEvents: events,
       availableSchedules: [],
-      loading: true,
+      loading: false,
       selectedSchedule: undefined,
       timeFormat: '12h',
     }
   );
-
-  useEffect(() => {
-    dispatch({ type: 'SET_LOADING', value: false });
-  }, [events]);
 
   if (schedulerState.loading) {
     // TODO: loader here
