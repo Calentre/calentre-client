@@ -1,33 +1,28 @@
 import { EventsOwner } from '@/types/eventsOwner';
-import { MeetingItem } from '@/types/meetings';
-import { useRouter } from 'next/navigation';
+import { EventItem } from '@/types/meetings';
+import Link from 'next/link';
 import { ArrowRight } from '../Icons/ArrowRight';
 import { Clock } from '../Icons/Clock';
 import { Tag } from '../Icons/Tag';
 import { Divider } from '../common/Divider';
 
 interface Props {
-  meeting: MeetingItem;
+  meeting: EventItem;
   eventOwner: EventsOwner;
 }
 
 export const MeetItem = ({ meeting, eventOwner }: Props) => {
-  const { duration, name, fee } = meeting;
-  const { push } = useRouter();
-
-  const onClickHandler = () => {
-    push(`/${eventOwner.userName}/${meeting.appendedUrlName}`);
-  };
+  const { duration, title, price, isPaidEvent } = meeting;
 
   return (
     <>
-      <div
+      <Link
+        href={`/${eventOwner.userName}/${meeting.appendedUrlName}`}
         className='flex w-full cursor-pointer flex-row items-center justify-between'
-        onClick={onClickHandler}
       >
         <div className='flex flex-col gap-2'>
           <p className='text-lg font-semibold leading-normal text-carbon-black'>
-            {name}
+            {title}
           </p>
           <div className='flex gap-5 text-sm font-normal leading-normal text-carbon-black'>
             <div className='flex flex-row gap-0'>
@@ -36,12 +31,12 @@ export const MeetItem = ({ meeting, eventOwner }: Props) => {
             </div>
             <div className='flex flex-row gap-2'>
               <Tag />
-              <span>{fee}</span>
+              <span>{isPaidEvent ? price : 'Free'}</span>
             </div>
           </div>
         </div>
         <ArrowRight />
-      </div>
+      </Link>
       <Divider horizontal margin={6} />
     </>
   );
